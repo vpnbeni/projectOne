@@ -1,0 +1,65 @@
+@import "Colors.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  word-spacing: 0.3rem;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  background-color: #13072e;
+}
+.App {
+  color: white;
+  margin: 3rem 0;
+  > .App-header {
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  > .App-content {
+    margin: auto;
+    width: 80%;
+  }
+}
+
+.dataFetcherContainer {
+  padding: 2rem 4rem;
+  border-radius: 2rem;
+  background: rgb(19, 7, 46);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(19, 7, 46, 1) 0%,
+    rgba(63, 33, 130, 1) 50%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(19, 7, 46, 1) 0%,
+    rgba(63, 33, 130, 1) 50%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(19, 7, 46, 1) 0%,
+    rgba(63, 33, 130, 1) 50%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#13072e",endColorstr="#3f2182",GradientType=1);
+  > .btnDiv {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    > .flipBtn {
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: white;
+      border: none;
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+  }
+}
