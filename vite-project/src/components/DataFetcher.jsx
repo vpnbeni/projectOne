@@ -1,14 +1,42 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Carousel } from "react-responsive-carousel";
+import ReactCardFlip from "react-card-flip";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the styles
 import "../fontAwesomeConfig"; // Ensure this is imported once in your app
 
-const DataFetcher = () => {
+const Test = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  //   console.log(data);
+
+  //   flip
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const flipCard = () => {
+    setIsFlipped(!isFlipped);
+  };
+
+  //   slideshow component
+  const slides = document.querySelectorAll(".slide");
+  let count = false;
+  slides.forEach((slide, index) => {
+    slide.style.left = `${index * 100}%`;
+  });
+  const slideImage = () => {
+    slides.forEach((slide) => {
+      slide.style.transform = `translateX(-${count * 100}%)`;
+    });
+  };
+  const goNext = () => {
+    count = !count;
+    slideImage();
+  };
+  const goPrev = () => {
+    count = !count;
+    slideImage();
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,39 +64,84 @@ const DataFetcher = () => {
   }
 
   return (
-    <div className="dataFetcherContainer">
-      <div className="btnDiv">
-        <button className="flipBtn">
-          Flip <FontAwesomeIcon icon={["fas", "repeat"]} />
-        </button>
+    <>
+      <div className="">
+        
       </div>
-      <Carousel  >
-        {data.map((item) => (
-          <div key={item.id} className="card">
-            <h2>
-              {item.serial_number}. {item.objective}
-            </h2>
-            <h3>Objective</h3>
-            <p>{item.objective}</p>
-            <div className="ingredients">
-              <div>
-                <h3>Home Ingredients</h3>
-                <p>{item.home_ingredients}</p>
-              </div>
-              <div>
-                <h3>Box Ingredients</h3>
-                <p>{item.box_ingredients}</p>
-              </div>
-            </div>
-            <h3>Procedure</h3>
-            <p>{item.procedure}</p>
-            <h3>Explanation</h3>
-            <p>{item.explanation}</p>
+      <div className="dataFetcherContainer prevNext">
+      <div className="prevBtn" onClick={() => goPrev()}>
+          <div>
+            <FontAwesomeIcon className="icon" icon="fa-solid fa-arrow-left" />
           </div>
-        ))}
-      </Carousel>
-    </div>
+        </div>
+        <div className="nextBtn" onClick={() => goNext()}>
+          <div>
+            <FontAwesomeIcon className="icon" icon="fa-solid fa-arrow-right" />
+          </div>
+        </div>
+        <div className="btnDiv">
+          <button className="flipBtn" onClick={flipCard}>
+            Flip <FontAwesomeIcon icon={["fas", "repeat"]} />
+          </button>
+        </div>
+        <div className="slider">
+          {data.map((item) => {
+            const homeIngredients = item.home_ingredients
+              .split("\n")
+              .filter((ing) => ing.trim() !== "");
+            const boxIngredients = item.box_ingredients
+              .split("\n")
+              .filter((ing) => ing.trim() !== "");
+            const procedureSteps = item.procedure
+              .split("\n")
+              .filter((step) => step.trim() !== "");
+
+            return (
+              <div key={item.id} className="slide ">
+                <ReactCardFlip flipDirection="horizontal" isFlipped={isFlipped}>
+                  <div className="card">
+                    <h1 className="serial bottomMargin">
+                      Serial Number: {item.serial_number}
+                    </h1>
+                    <h2>Objective</h2>
+                    <p className="bottomMargin">{item.objective}</p>
+                    <div className="ingredients">
+                      <div>
+                        <h2>Home Ingredients</h2>
+                        <div>
+                          {homeIngredients.map((ing, index) => (
+                            <div key={index}>{ing}</div>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h2>Box Ingredients</h2>
+                        <div>
+                          {boxIngredients.map((ing, index) => (
+                            <div key={index}>{ing}</div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className=" card card-back">
+                    <h2 className="procedure bottomMargin">Procedure</h2>
+                    <div className=" bottomMargin">
+                      {procedureSteps.map((step, index) => (
+                        <div key={index}>{step}</div>
+                      ))}
+                    </div>
+                    <h3 className="explanation">Explanation</h3>
+                    <p>{item.explanation}</p>
+                  </div>
+                </ReactCardFlip>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 };
 
-export default DataFetcher;
+export default Test;
