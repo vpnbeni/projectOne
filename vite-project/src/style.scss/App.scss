@@ -87,19 +87,18 @@ body {
     background-color: inherit;
     border: none;
   }
-  
 }
-.prevNext{
-    position: relative;
+.prevNext {
+  position: relative;
 }
-.prevBtn{
-    top: 50%;
-    z-index: 1000;
-    left: 0% !important;
-    }
-    .nextBtn{
-      top: 50%;
-      z-index: 1000;
+.prevBtn {
+  top: 40%;
+  z-index: 1000;
+  left: 0% !important;
+}
+.nextBtn {
+  top: 40%;
+  z-index: 1000;
   right: 0% !important;
 }
 .slider {
@@ -107,10 +106,9 @@ body {
   width: 100%;
   height: 70vh;
   overflow: hidden;
-  
 }
 .slide {
-  width: 100% !important; 
+  width: 100% !important;
   height: 70vh;
   transition: 1s;
 }
@@ -124,13 +122,12 @@ body {
   justify-content: space-between;
   padding: 10px 0;
 }
-.card { 
+.card {
   margin: auto;
-  
+
   width: 100%;
   height: 100%;
-  padding:0 80px !important;
-  
+  padding: 0 80px !important;
 }
 .serial {
   font-weight: 600;
@@ -162,7 +159,7 @@ body {
   color: #fff;
   background: #666;
 }
-.btnnew{
+.btnnew {
   transform: translate(100%, 700%);
 }
 .each-slide-effect > div {
@@ -170,7 +167,7 @@ body {
   align-items: center;
   justify-content: center;
   background-size: cover;
-  height: 60vh ;
+  height: 60vh;
 }
 
 .each-slide-effect span {
