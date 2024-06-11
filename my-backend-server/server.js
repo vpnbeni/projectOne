@@ -1,12 +1,14 @@
 const express = require('express');
 const axios = require('axios');
 const morgan = require('morgan');
+const cors=require('cors');
+
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const API_URL = process.env.API_URL;
-
+app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/api/contents', async (req, res) => {
