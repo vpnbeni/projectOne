@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const PORT =  3000;
-const API_URL = "https://jupiter1xl-2e281856744c.herokuapp.com/api/contents/";
+const API_URL = "https://jupiter1xl-2e281856744c.herokuapp.com/api/contents";
 
 app.use(cors());
 app.use(bodyParser.json());
