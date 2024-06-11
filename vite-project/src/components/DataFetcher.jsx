@@ -1,5 +1,5 @@
 import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
+// import "react-slideshow-image/dist/styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
