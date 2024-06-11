@@ -1,6 +1,5 @@
 import DataFetcher from "./components/DataFetcher";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Test from './components/Test';
 function App() {
   return (
     <Router>
@@ -11,7 +10,6 @@ function App() {
         <div className="App-content">
           <Routes>
             <Route path="/" element={<DataFetcher />} />
-            <Route path="/test" element={<Test />} />
           </Routes>
         </div>
       </div>
