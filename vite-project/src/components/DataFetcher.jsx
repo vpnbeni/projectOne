@@ -42,8 +42,9 @@ const Test = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
+          "https://jupiter1xl-2e281856744c.herokuapp.com/api/contents"
           // "http://localhost:3000/api/contents/?format=json"
-          "https://project-one-server-kappa.vercel.app/api/contents/?format=json"
+          // "https://project-one-server-kappa.vercel.app/api/contents/?format=json"
         );
         setData(response.data);
       } catch (err) {
