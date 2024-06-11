@@ -20,7 +20,7 @@ const properties = {
   ),
 };
 
-const DataFetcher = () => {
+const Test = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -133,4 +133,4 @@ const DataFetcher = () => {
   );
 };
 
-export default DataFetcher;
+export default Test;
