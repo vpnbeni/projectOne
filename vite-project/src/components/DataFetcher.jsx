@@ -43,7 +43,7 @@ const Test = () => {
       try {
         const response = await axios.get(
           // "http://localhost:3000/api/contents/?format=json"
-          "https://project-one-server-kappa.vercel.app/api/contents/"
+          "https://project-one-server-kappa.vercel.app/api/contents/?format=json"
         );
         setData(response.data);
       } catch (err) {
