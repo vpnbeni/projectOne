@@ -1,10 +1,10 @@
 import { Slide } from "react-slideshow-image";
-// import "react-slideshow-image/dist/styles.css";
+import "react-slideshow-image/dist/styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactCardFlip from "react-card-flip";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the styles
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the styles
 import "../fontAwesomeConfig"; // Ensure this is imported once in your app
 
 const properties = {
